@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PersonRequestKafkaConsumer extends EventRequestKafkaConsumer<PersonResource> {
-    public PersonRequestKafkaConsumer(EventConsumerFactoryService eventConsumerFactoryService, PersonConfig config) {
-        super(eventConsumerFactoryService, config);
+    public PersonRequestKafkaConsumer(EventConsumerFactoryService eventConsumerFactoryService, PersonConfig personConfig) {
+        super(eventConsumerFactoryService, personConfig);
     }
 }

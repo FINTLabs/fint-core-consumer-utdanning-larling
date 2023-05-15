@@ -21,11 +21,11 @@ public class PersonController extends WriteableConsumerRestController<PersonReso
     public PersonController(
             CacheService<PersonResource> cacheService,
             PersonLinker fintLinker,
-            PersonConfig config,
-            PersonEventKafkaProducer eventKafkaProducer,
-            PersonResponseKafkaConsumer responseKafkaConsumer,
+            PersonConfig personConfig,
+            PersonEventKafkaProducer personEventKafkaProducer,
+            PersonResponseKafkaConsumer personResponseKafkaConsumer,
             FintFilterService odataFilterService,
-            PersonRequestKafkaConsumer requestKafkaConsumer) {
-        super(cacheService, fintLinker, config, eventKafkaProducer, responseKafkaConsumer, odataFilterService, requestKafkaConsumer);
+            PersonRequestKafkaConsumer personRequestKafkaConsumer) {
+        super(cacheService, fintLinker, personConfig, personEventKafkaProducer, personResponseKafkaConsumer, odataFilterService, personRequestKafkaConsumer);
     }
 }

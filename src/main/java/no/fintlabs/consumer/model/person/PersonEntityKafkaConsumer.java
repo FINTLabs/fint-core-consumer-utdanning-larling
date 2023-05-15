@@ -14,7 +14,7 @@ public class PersonEntityKafkaConsumer extends EntityKafkaConsumer<PersonResourc
             EntityConsumerFactoryService entityConsumerFactoryService,
             ListenerBeanRegistrationService listenerBeanRegistrationService,
             EntityTopicService entityTopicService,
-            PersonConfig config) {
-        super(entityConsumerFactoryService, listenerBeanRegistrationService, entityTopicService, config);
+            PersonConfig personConfig) {
+        super(entityConsumerFactoryService, listenerBeanRegistrationService, entityTopicService, personConfig);
     }
 }

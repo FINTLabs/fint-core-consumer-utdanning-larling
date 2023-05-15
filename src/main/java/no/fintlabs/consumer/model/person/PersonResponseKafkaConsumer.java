@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonResponseKafkaConsumer extends EventResponseKafkaConsumer<PersonResource> {
 
-    public PersonResponseKafkaConsumer(EventConsumerFactoryService eventConsumerFactoryService, PersonConfig config, PersonLinker linker) {
-        super(eventConsumerFactoryService, config, linker);
+    public PersonResponseKafkaConsumer(EventConsumerFactoryService eventConsumerFactoryService, PersonConfig personConfig, PersonLinker personLinker) {
+        super(eventConsumerFactoryService, personConfig, personLinker);
     }
 
 }
