@@ -1,7 +1,7 @@
 package no.fintlabs.consumer.model.virksomhet;
 
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.resource.okonomi.regnskap.VirksomhetResource;
+import no.fint.model.resource.felles.VirksomhetResource;
 import no.fintlabs.cache.Cache;
 import no.fintlabs.cache.CacheManager;
 import no.fintlabs.cache.packing.PackingTypes;
@@ -57,7 +57,7 @@ public class VirksomhetService extends CacheService<VirksomhetResource> {
         return getCache().getLastUpdatedByFilter(systemId.hashCode(),
                 resource -> Optional
                         .ofNullable(resource)
-                        .map(VirksomhetResource::getSystemId)
+                        .map(VirksomhetResource::getVirksomhetsId)
                         .map(Identifikator::getIdentifikatorverdi)
                         .map(systemId::equals)
                         .orElse(false));

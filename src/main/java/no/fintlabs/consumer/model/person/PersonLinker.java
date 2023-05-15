@@ -1,7 +1,7 @@
 package no.fintlabs.consumer.model.person;
 
-import no.fint.model.resource.okonomi.regnskap.PersonResource;
-import no.fint.model.resource.okonomi.regnskap.PersonResources;
+import no.fint.model.resource.felles.PersonResource;
+import no.fint.model.resource.felles.PersonResources;
 import no.fint.relations.FintLinker;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class PersonLinker extends FintLinker<PersonResource> {
         super(PersonResource.class);
     }
 
-    public void mapLinks(Person_REOSURCE resource) {
+    public void mapLinks(PersonResource resource) {
         super.mapLinks(resource);
     }
 
@@ -44,8 +44,8 @@ public class PersonLinker extends FintLinker<PersonResource> {
     @Override
     public Stream<String> getAllSelfHrefs(PersonResource resource) {
         Stream.Builder<String> builder = Stream.builder();
-        if (!isNull(resource.getSystemId()) && !StringUtils.isEmpty(resource.getSystemId().getIdentifikatorverdi())) {
-            builder.add(createHrefWithId(resource.getSystemId().getIdentifikatorverdi(), "systemid"));
+        if (!isNull(resource.getFodselsnummer()) && !StringUtils.isEmpty(resource.getFodselsnummer().getIdentifikatorverdi())) {
+            builder.add(createHrefWithId(resource.getFodselsnummer().getIdentifikatorverdi(), "systemid"));
         }
 
         return builder.build();
@@ -53,8 +53,8 @@ public class PersonLinker extends FintLinker<PersonResource> {
 
     int[] hashCodes(PersonResource resource) {
         IntStream.Builder builder = IntStream.builder();
-        if (!isNull(resource.getSystemId()) && !StringUtils.isEmpty(resource.getSystemId().getIdentifikatorverdi())) {
-            builder.add(resource.getSystemId().getIdentifikatorverdi().hashCode());
+        if (!isNull(resource.getFodselsnummer()) && !StringUtils.isEmpty(resource.getFodselsnummer().getIdentifikatorverdi())) {
+            builder.add(resource.getFodselsnummer().getIdentifikatorverdi().hashCode());
         }
 
         return builder.build().toArray();

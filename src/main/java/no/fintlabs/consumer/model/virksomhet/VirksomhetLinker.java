@@ -1,7 +1,7 @@
 package no.fintlabs.consumer.model.virksomhet;
 
-import no.fint.model.resource.okonomi.regnskap.VirksomhetResource;
-import no.fint.model.resource.okonomi.regnskap.VirksomhetResources;
+import no.fint.model.resource.felles.VirksomhetResource;
+import no.fint.model.resource.felles.VirksomhetResources;
 import no.fint.relations.FintLinker;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -45,8 +45,8 @@ public class VirksomhetLinker extends FintLinker<VirksomhetResource> {
     @Override
     public Stream<String> getAllSelfHrefs(VirksomhetResource virksomhet) {
         Stream.Builder<String> builder = Stream.builder();
-        if (!isNull(virksomhet.getSystemId()) && !StringUtils.isEmpty(virksomhet.getSystemId().getIdentifikatorverdi())) {
-            builder.add(createHrefWithId(virksomhet.getSystemId().getIdentifikatorverdi(), "systemid"));
+        if (!isNull(virksomhet.getVirksomhetsId()) && !StringUtils.isEmpty(virksomhet.getVirksomhetsId().getIdentifikatorverdi())) {
+            builder.add(createHrefWithId(virksomhet.getVirksomhetsId().getIdentifikatorverdi(), "systemid"));
         }
 
         return builder.build();
@@ -54,8 +54,8 @@ public class VirksomhetLinker extends FintLinker<VirksomhetResource> {
 
     int[] hashCodes(VirksomhetResource virksomhet) {
         IntStream.Builder builder = IntStream.builder();
-        if (!isNull(virksomhet.getSystemId()) && !StringUtils.isEmpty(virksomhet.getSystemId().getIdentifikatorverdi())) {
-            builder.add(virksomhet.getSystemId().getIdentifikatorverdi().hashCode());
+        if (!isNull(virksomhet.getVirksomhetsId()) && !StringUtils.isEmpty(virksomhet.getVirksomhetsId().getIdentifikatorverdi())) {
+            builder.add(virksomhet.getVirksomhetsId().getIdentifikatorverdi().hashCode());
         }
 
         return builder.build().toArray();

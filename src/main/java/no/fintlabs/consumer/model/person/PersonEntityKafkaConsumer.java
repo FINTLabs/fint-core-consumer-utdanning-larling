@@ -1,6 +1,6 @@
 package no.fintlabs.consumer.model.person;
 
-import no.fint.model.resource.okonomi.regnskap.PersonResource;
+import no.fint.model.resource.felles.PersonResource;
 import no.fintlabs.core.consumer.shared.resource.kafka.EntityKafkaConsumer;
 import no.fintlabs.kafka.common.ListenerBeanRegistrationService;
 import no.fintlabs.kafka.entity.EntityConsumerFactoryService;
@@ -14,7 +14,7 @@ public class PersonEntityKafkaConsumer extends EntityKafkaConsumer<PersonResourc
             EntityConsumerFactoryService entityConsumerFactoryService,
             ListenerBeanRegistrationService listenerBeanRegistrationService,
             EntityTopicService entityTopicService,
-            PersonConfig personConfig) {
-        super(entityConsumerFactoryService, listenerBeanRegistrationService, entityTopicService, personConfig);
+            PersonConfig config) {
+        super(entityConsumerFactoryService, listenerBeanRegistrationService, entityTopicService, config);
     }
 }

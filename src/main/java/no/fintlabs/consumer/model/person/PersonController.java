@@ -2,7 +2,7 @@ package no.fintlabs.consumer.model.person;
 
 import lombok.extern.slf4j.Slf4j;
 import no.fint.antlr.FintFilterService;
-import no.fint.model.resource.okonomi.regnskap.PersonResource;
+import no.fint.model.resource.felles.PersonResource;
 import no.fint.relations.FintRelationsMediaType;
 import no.fintlabs.consumer.config.RestEndpoints;
 import no.fintlabs.core.consumer.shared.resource.CacheService;
@@ -21,11 +21,11 @@ public class PersonController extends WriteableConsumerRestController<PersonReso
     public PersonController(
             CacheService<PersonResource> cacheService,
             PersonLinker fintLinker,
-            PersonConfig personConfig,
-            PersonEventKafkaProducer personEventKafkaProducer,
-            PersonResponseKafkaConsumer personResponseKafkaConsumer,
+            PersonConfig config,
+            PersonEventKafkaProducer eventKafkaProducer,
+            PersonResponseKafkaConsumer responseKafkaConsumer,
             FintFilterService odataFilterService,
-            PersonRequestKafkaConsumer personRequestKafkaConsumer) {
-        super(cacheService, fintLinker, personConfig, personEventKafkaProducer, personResponseKafkaConsumer, odataFilterService, personRequestKafkaConsumer);
+            PersonRequestKafkaConsumer requestKafkaConsumer) {
+        super(cacheService, fintLinker, config, eventKafkaProducer, responseKafkaConsumer, odataFilterService, requestKafkaConsumer);
     }
 }

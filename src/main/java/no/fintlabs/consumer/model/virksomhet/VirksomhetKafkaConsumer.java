@@ -1,6 +1,6 @@
 package no.fintlabs.consumer.model.virksomhet;
 
-import no.fint.model.resource.okonomi.regnskap.VirksomhetResource;
+import no.fint.model.resource.felles.VirksomhetResource;
 import no.fintlabs.core.consumer.shared.resource.kafka.EntityKafkaConsumer;
 import no.fintlabs.kafka.common.ListenerBeanRegistrationService;
 import no.fintlabs.kafka.entity.EntityConsumerFactoryService;

@@ -2,7 +2,7 @@ package no.fintlabs.consumer.model.virksomhet;
 
 import lombok.extern.slf4j.Slf4j;
 import no.fint.antlr.FintFilterService;
-import no.fint.model.resource.okonomi.regnskap.VirksomhetResource;
+import no.fint.model.resource.felles.VirksomhetResource;
 import no.fint.relations.FintRelationsMediaType;
 import no.fintlabs.consumer.config.RestEndpoints;
 import no.fintlabs.core.consumer.shared.resource.ConsumerRestController;

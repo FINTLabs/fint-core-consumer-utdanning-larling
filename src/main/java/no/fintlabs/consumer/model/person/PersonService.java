@@ -2,7 +2,7 @@ package no.fintlabs.consumer.model.person;
 
 import lombok.extern.slf4j.Slf4j;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.resource.okonomi.regnskap.PersonResource;
+import no.fint.model.resource.felles.PersonResource;
 import no.fintlabs.cache.Cache;
 import no.fintlabs.cache.CacheManager;
 import no.fintlabs.cache.packing.PackingTypes;
@@ -69,7 +69,7 @@ public class PersonService extends CacheService<PersonResource> {
         return getCache().getLastUpdatedByFilter(systemId.hashCode(),
                 (resource) -> Optional
                         .ofNullable(resource)
-                        .map(PersonResource::getSystemId)
+                        .map(PersonResource::getFodselsnummer)
                         .map(Identifikator::getIdentifikatorverdi)
                         .map(systemId::equals)
                         .orElse(false)
