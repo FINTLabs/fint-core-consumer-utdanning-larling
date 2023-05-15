@@ -1,14 +1,13 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: fint-core-consumer-utdanning-vurdering
+  name: fint-core-consumer-utdanning-larling
 spec:
   entryPoints:
     - web
   routes:
-    - match: "Host(`beta.felleskomponent.no`) && (PathPrefix( `/utdanning/vurdering/fravar` ) || PathPrefix( `/utdanning/vurdering/elevfravar` ) || PathPrefix( `/utdanning/vurdering/fravarsoversikt` ) || PathPrefix( `/utdanning/vurdering/admin/status` ) || PathPrefix( `/utdanning/vurdering/anmerkninger` ) || PathPrefix( `/utdanning/vurdering/eksamensgruppe` ) || PathPrefix( `/utdanning/vurdering/eksamensgruppemedlemskap` ) || PathPrefix( `/utdanning/vurdering/halvarsfagvurdering` ) || PathPrefix( `/utdanning/vurdering/halvarsordensvurdering` ) || PathPrefix( `/utdanning/vurdering/karakterhistorie` ) || PathPrefix( `/utdanning/vurdering/karakterverdi` ) || PathPrefix( `/utdanning/vurdering/admin/cache/status` ) || PathPrefix( `/utdanning/vurdering/admin/cache/rebuild` )) && Headers(`x-org-id`, `tffk.no`)"
-
+    - match: "Host(`beta.felleskomponent.no`) && (PathPrefix( `/utdanning/larling`) && Headers(`x-org-id`, `tffk.no`)"
       kind: Rule
       services:
-        - name: fint-core-consumer-utdanning-vurdering
+        - name: fint-core-consumer-utdanning-larling
           port: 8080

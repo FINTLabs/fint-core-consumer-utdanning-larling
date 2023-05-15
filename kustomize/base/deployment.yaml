@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fint-core-consumer-utdanning-vurdering
+  name: fint-core-consumer-utdanning-larling
 spec:
   replicas: 1
   strategy:
@@ -11,16 +11,16 @@ spec:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
-        prometheus.io/path: "utdanning/vurdering/actuator/prometheus"
+        prometheus.io/path: "utdanning/larling/actuator/prometheus"
     spec:
       restartPolicy: Always
       volumes:
         - name: credentials
           secret:
-            secretName: fint-core-consumer-utdanning-vurdering-kafka-certificates
+            secretName: fint-core-consumer-utdanning-larling-kafka-certificates
       containers:
-        - image: ghcr.io/fintlabs/fint-core-consumer-utdanning-vurdering:sha-0000000
-          name: fint-core-consumer-utdanning-vurdering
+        - image: ghcr.io/fintlabs/fint-core-consumer-utdanning-larling:sha-0000000
+          name: fint-core-consumer-utdanning-larling
           volumeMounts:
             - name: credentials
               mountPath: /credentials
@@ -35,6 +35,6 @@ spec:
             - containerPort: 8080
           envFrom:
             - secretRef:
-                name: fint-core-consumer-utdanning-vurdering-kafka
+                name: fint-core-consumer-utdanning-larling-kafka
             - configMapRef:
-                name: fint-core-consumer-utdanning-vurdering
+                name: fint-core-consumer-utdanning-larling
