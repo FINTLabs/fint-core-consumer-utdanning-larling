@@ -1,4 +1,4 @@
-# FINT Core Consumer Utdanning Vurdering
+# FINT Core Consumer Utdanning Larling
 
 ## Configuration
 

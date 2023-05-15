@@ -1,7 +1,7 @@
 package no.fintlabs.consumer.model.larling;
 
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
-import no.fint.model.resource.utdanning.vurdering.ElevfravarResource;
+import no.fint.model.resource.utdanning.larling.LarlingResource;
 import no.fintlabs.cache.Cache;
 import no.fintlabs.cache.CacheManager;
 import no.fintlabs.cache.packing.PackingTypes;
@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Service
-public class ElevfravarService extends CacheService<ElevfravarResource> {
+public class ElevfravarService extends CacheService<LarlingResource> {
     private final ElevfravarKafkaConsumer elevfravarKafkaConsumer;
 
     private final ElevfravarLinker linker;
@@ -30,33 +30,33 @@ public class ElevfravarService extends CacheService<ElevfravarResource> {
     }
 
     @Override
-    protected Cache<ElevfravarResource> initializeCache(CacheManager cacheManager, ConsumerConfig<ElevfravarResource> consumerConfig, String s) {
+    protected Cache<LarlingResource> initializeCache(CacheManager cacheManager, ConsumerConfig<LarlingResource> consumerConfig, String s) {
         return cacheManager.create(PackingTypes.POJO, consumerConfig.getOrgId(), consumerConfig.getResourceName());
     }
 
     @PostConstruct
     private void registerKafkaListener() {
-        long retension = elevfravarKafkaConsumer.registerListener(ElevfravarResource.class, this::addResourceToCache);
+        long retension = elevfravarKafkaConsumer.registerListener(LarlingResource.class, this::addResourceToCache);
         getCache().setRetentionPeriodInMs(retension);
     }
 
-    private void addResourceToCache(ConsumerRecord<String, ElevfravarResource> consumerRecord) {
+    private void addResourceToCache(ConsumerRecord<String, LarlingResource> consumerRecord) {
         this.eventLogger.logDataRecieved();
         if (consumerRecord.value() == null) {
             getCache().remove(consumerRecord.key());
         } else {
-            ElevfravarResource elevFravarResource = consumerRecord.value();
-            linker.mapLinks(elevFravarResource);
-            getCache().put(consumerRecord.key(), elevFravarResource, linker.hashCodes(elevFravarResource));
+            LarlingResource LarlingResource = consumerRecord.value();
+            linker.mapLinks(LarlingResource);
+            getCache().put(consumerRecord.key(), LarlingResource, linker.hashCodes(LarlingResource));
         }
     }
 
     @Override
-    public Optional<ElevfravarResource> getBySystemId(String systemId) {
+    public Optional<LarlingResource> getBySystemId(String systemId) {
         return getCache().getLastUpdatedByFilter(systemId.hashCode(),
                 resource -> Optional
                         .ofNullable(resource)
-                        .map(ElevfravarResource::getSystemId)
+                        .map(LarlingResource::getSystemId)
                         .map(Identifikator::getIdentifikatorverdi)
                         .map(systemId::equals)
                         .orElse(false));

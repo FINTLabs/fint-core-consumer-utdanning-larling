@@ -2,7 +2,7 @@ package no.fintlabs.consumer.model.larling;
 
 import lombok.extern.slf4j.Slf4j;
 import no.fint.antlr.FintFilterService;
-import no.fint.model.resource.utdanning.vurdering.ElevfravarResource;
+import no.fint.model.resource.utdanning.larling.LarlingResource;
 import no.fint.relations.FintRelationsMediaType;
 import no.fintlabs.consumer.config.RestEndpoints;
 import no.fintlabs.core.consumer.shared.resource.ConsumerRestController;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @CrossOrigin
 @RestController
-@RequestMapping(name = "Elevfravar", value = RestEndpoints.ELEVFRAVAR, produces = {FintRelationsMediaType.APPLICATION_HAL_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-public class ElevfravarController extends ConsumerRestController<ElevfravarResource> {
+@RequestMapping(name = "Larling", value = RestEndpoints.LARLING, produces = {FintRelationsMediaType.APPLICATION_HAL_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
+public class ElevfravarController extends ConsumerRestController<LarlingResource> {
 
-    public ElevfravarController(ElevfravarService elevfravarService, ElevfravarLinker elevfravarLinker, FintFilterService oDataFilterService) {
-        super(elevfravarService, elevfravarLinker, oDataFilterService);
+    public ElevfravarController(ElevfravarService elevfravarService, ElevfravarLinker linker, FintFilterService oDataFilterService) {
+        super(elevfravarService, linker, oDataFilterService);
     }
 }
