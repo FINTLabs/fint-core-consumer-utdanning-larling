@@ -8,7 +8,7 @@ spring:
         jwt:
           issuer-uri: https://idp.felleskomponent.no/nidp/oauth/nam
   webflux:
-    base-path: /utdanning/vurdering
+    base-path: /utdanning/larling
   kafka:
     consumer:
       group-id: # consumer-utdanning-vurdering-<your-instance-id>
@@ -17,7 +17,7 @@ fint:
   consumer:
     org-id:
   kafka:
-    application-id: consumer-utdanning-vurdering
+    application-id: consumer-utdanning-larling
     enable-ssl: true
     topic:
       org-id: fintlabs.no
