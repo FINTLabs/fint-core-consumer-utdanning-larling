@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 @RequestMapping(name = "Larling", value = RestEndpoints.LARLING, produces = {FintRelationsMediaType.APPLICATION_HAL_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-public class ElevfravarController extends ConsumerRestController<LarlingResource> {
+public class LarlingController extends ConsumerRestController<LarlingResource> {
 
-    public ElevfravarController(ElevfravarService elevfravarService, ElevfravarLinker linker, FintFilterService oDataFilterService) {
-        super(elevfravarService, linker, oDataFilterService);
+    public LarlingController(LarlingService service, LarlingLinker linker, FintFilterService oDataFilterService) {
+        super(service, linker, oDataFilterService);
     }
 }

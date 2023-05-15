@@ -8,15 +8,15 @@ import no.fintlabs.kafka.entity.topic.EntityTopicService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ElevfravarKafkaConsumer extends EntityKafkaConsumer<LarlingResource> {
-    public ElevfravarKafkaConsumer(
+public class LarlingKafkaConsumer extends EntityKafkaConsumer<LarlingResource> {
+    public LarlingKafkaConsumer(
             EntityConsumerFactoryService entityConsumerFactoryService,
             ListenerBeanRegistrationService listenerBeanRegistrationService,
             EntityTopicService entityTopicService,
-            ElevfravarConfig elevfravarConfig) {
+            LarlingConfig config) {
         super(entityConsumerFactoryService,
                 listenerBeanRegistrationService,
                 entityTopicService,
-                elevfravarConfig);
+                config);
     }
 }

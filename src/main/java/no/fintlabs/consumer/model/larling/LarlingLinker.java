@@ -14,9 +14,9 @@ import java.util.stream.Stream;
 import static java.util.Objects.isNull;
 
 @Component
-public class ElevfravarLinker extends FintLinker<LarlingResource> {
+public class LarlingLinker extends FintLinker<LarlingResource> {
 
-    public ElevfravarLinker() {
+    public LarlingLinker() {
         super(LarlingResource.class);
     }
 
@@ -38,25 +38,24 @@ public class ElevfravarLinker extends FintLinker<LarlingResource> {
     }
 
     @Override
-    public String getSelfHref(LarlingResource fravar) {
-        return getAllSelfHrefs(fravar).findFirst().orElse(null);
+    public String getSelfHref(LarlingResource resource) {
+        return getAllSelfHrefs(resource).findFirst().orElse(null);
     }
 
-
     @Override
-    public Stream<String> getAllSelfHrefs(LarlingResource fravar) {
+    public Stream<String> getAllSelfHrefs(LarlingResource resource) {
         Stream.Builder<String> builder = Stream.builder();
-        if (!isNull(fravar.getSystemId()) && !StringUtils.isEmpty(fravar.getSystemId().getIdentifikatorverdi())) {
-            builder.add(createHrefWithId(fravar.getSystemId().getIdentifikatorverdi(), "systemid"));
+        if (!isNull(resource.getSystemId()) && !StringUtils.isEmpty(resource.getSystemId().getIdentifikatorverdi())) {
+            builder.add(createHrefWithId(resource.getSystemId().getIdentifikatorverdi(), "systemid"));
         }
 
         return builder.build();
     }
 
-    int[] hashCodes(LarlingResource fravar) {
+    int[] hashCodes(LarlingResource resource) {
         IntStream.Builder builder = IntStream.builder();
-        if (!isNull(fravar.getSystemId()) && !StringUtils.isEmpty(fravar.getSystemId().getIdentifikatorverdi())) {
-            builder.add(fravar.getSystemId().getIdentifikatorverdi().hashCode());
+        if (!isNull(resource.getSystemId()) && !StringUtils.isEmpty(resource.getSystemId().getIdentifikatorverdi())) {
+            builder.add(resource.getSystemId().getIdentifikatorverdi().hashCode());
         }
 
         return builder.build().toArray();

@@ -6,9 +6,9 @@ import no.fintlabs.core.consumer.shared.resource.ConsumerConfig;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ElevfravarConfig extends ConsumerConfig<LarlingResource> {
+public class LarlingConfig extends ConsumerConfig<LarlingResource> {
 
-    public ElevfravarConfig(ConsumerProps consumerProps) {
+    public LarlingConfig(ConsumerProps consumerProps) {
         super(consumerProps);
     }
 

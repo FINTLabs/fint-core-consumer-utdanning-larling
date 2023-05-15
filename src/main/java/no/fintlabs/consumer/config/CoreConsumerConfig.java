@@ -17,6 +17,6 @@ public class CoreConsumerConfig {
     @Qualifier("linkMapper")
     @Bean
     public Map<String, String> linkMapper() {
-        return LinkMapper.linkMapper(contextPath);
+        return LinkMapper.linkMapper();
     }
 }

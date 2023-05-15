@@ -14,18 +14,18 @@ import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @Service
-public class ElevfravarService extends CacheService<LarlingResource> {
-    private final ElevfravarKafkaConsumer elevfravarKafkaConsumer;
+public class LarlingService extends CacheService<LarlingResource> {
 
-    private final ElevfravarLinker linker;
+    private final LarlingKafkaConsumer elevfravarKafkaConsumer;
+    private final LarlingLinker linker;
 
-    public ElevfravarService(
-            ElevfravarConfig elevfravarConfig,
+    public LarlingService(
+            LarlingConfig config,
             CacheManager cacheManager,
-            ElevfravarKafkaConsumer elevfravarKafkaConsumer,
-            ElevfravarLinker linker) {
-        super(elevfravarConfig, cacheManager, elevfravarKafkaConsumer);
-        this.elevfravarKafkaConsumer = elevfravarKafkaConsumer;
+            LarlingKafkaConsumer kafkaConsumer,
+            LarlingLinker linker) {
+        super(config, cacheManager, kafkaConsumer);
+        this.elevfravarKafkaConsumer = kafkaConsumer;
         this.linker = linker;
     }
 
