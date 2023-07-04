@@ -44,7 +44,7 @@ dependencies {
     implementation 'no.fintlabs:fint-core-cache:0.3.0'
     implementation 'no.fintlabs:fint-core-infra-models:1.1.0-rc-4'
     implementation 'no.fint:fint-event-model:3.0.2'
-    implementation 'no.fintlabs:fint-core-consumer-shared:0.6.0'
+    implementation 'no.fintlabs:fint-core-consumer-shared:0.7.1'
     implementation 'no.fintlabs:fint-antlr:1.1.1'
     implementation 'com.google.guava:guava:31.1-jre'
 
