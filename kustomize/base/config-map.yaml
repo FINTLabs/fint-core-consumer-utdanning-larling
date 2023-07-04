@@ -6,5 +6,6 @@ data:
   TZ: 'Europe/Oslo'
   JAVA_TOOLS_OPTIONS: '-XX:+ExitOnOutOfMemoryError -Xmx480M'
   spring.webflux.base-path: '/utdanning/larling'
+  fint.kafka.topic.domain-context: 'fint-core'
   fint.consumer.domain: 'utdanning'
   fint.consumer.package: 'larling'
