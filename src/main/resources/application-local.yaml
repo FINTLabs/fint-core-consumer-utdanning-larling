@@ -8,7 +8,7 @@ spring:
         jwt:
           issuer-uri: https://idp.felleskomponent.no/nidp/oauth/nam
   webflux:
-    base-path: /personvern/samtykke
+    base-path: /utdanning/larling
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -20,15 +20,15 @@ spring:
 
 fint:
   consumer:
-    org-id: fintlabs.no
-    domain: personvern
-    package: samtykke
+    org-id: nfk.no
+    domain: utdanning
+    package: larling
   kafka:
-    application-id: consumer-personvern-samtykke
+    application-id: consumer-utdanning-larling
     enable-ssl: false
     default-replicas: 1
     topic:
-      org-id: fintlabs.no
+      org-id: nfk.no
       domain-context: fint-core
 
 logging:

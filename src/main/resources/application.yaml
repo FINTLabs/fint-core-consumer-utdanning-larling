@@ -16,21 +16,23 @@ spring:
 fint:
   consumer:
     org-id:
+    domain:
+    package:
   kafka:
     application-id: consumer-utdanning-larling
     enable-ssl: true
     topic:
       org-id: fintlabs.no
       domain-context: fint-core
-  relations:
-    default-base-url: https://beta.felleskomponent.no
 
 logging:
   level:
     root: INFO
-    org.apache.kafka: WARN
+    no.fintlabs.kafka: WARN
     org:
+      apache.kafka: WARN
       springframework:
+        kafka: WARN
         security: INFO
 
 management:
