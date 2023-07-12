@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+
 @Slf4j
 @CrossOrigin
 @RestController
@@ -21,6 +23,7 @@ public class VirksomhetController extends ConsumerRestController<VirksomhetResou
         super(virksomhetService, virksomhetLinker, oDataFilterService);
     }
 
+    @PostConstruct
     private void registerIdentificators() {
         super.registerIdenficatorHandler("virksomhetsid", VirksomhetResource::getVirksomhetsId);
     }
