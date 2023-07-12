@@ -3,11 +3,13 @@ package no.fintlabs.consumer.model.person;
 import lombok.extern.slf4j.Slf4j;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.resource.felles.PersonResource;
+import no.fint.model.resource.utdanning.larling.LarlingResource;
 import no.fintlabs.cache.Cache;
 import no.fintlabs.cache.CacheManager;
 import no.fintlabs.cache.packing.PackingTypes;
 import no.fintlabs.core.consumer.shared.resource.CacheService;
 import no.fintlabs.core.consumer.shared.resource.ConsumerConfig;
+import no.fintlabs.core.consumer.shared.resource.ConsumerRestController;
 import no.fintlabs.core.consumer.shared.resource.kafka.EntityKafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Service;
@@ -50,17 +52,12 @@ public class PersonService extends CacheService<PersonResource> {
 
     private void addResourceToCache(ConsumerRecord<String, PersonResource> consumerRecord) {
         this.eventLogger.logDataRecieved();
-        PersonResource resource = consumerRecord.value();
-        if (resource == null) {
+        if (consumerRecord.value() == null) {
             getCache().remove(consumerRecord.key());
         } else {
+            PersonResource resource = consumerRecord.value();
             linker.mapLinks(resource);
-            this.getCache().put(consumerRecord.key(), resource, linker.hashCodes(resource));
-            if (consumerRecord.headers().lastHeader("event-corr-id") != null){
-                String corrId = new String(consumerRecord.headers().lastHeader("event-corr-id").value(), StandardCharsets.UTF_8);
-                log.debug("Adding corrId to EntityResponseCache: {}", corrId);
-                personResponseKafkaConsumer.getEntityCache().add(corrId, resource);
-            }
+            getCache().put(consumerRecord.key(), resource, linker.hashCodes(resource));
         }
     }
 

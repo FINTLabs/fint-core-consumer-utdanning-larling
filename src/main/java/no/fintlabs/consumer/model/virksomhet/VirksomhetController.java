@@ -20,4 +20,9 @@ public class VirksomhetController extends ConsumerRestController<VirksomhetResou
     public VirksomhetController(VirksomhetService virksomhetService, VirksomhetLinker virksomhetLinker, FintFilterService oDataFilterService) {
         super(virksomhetService, virksomhetLinker, oDataFilterService);
     }
+
+    private void registerIdentificators() {
+        super.registerIdenficatorHandler("virksomhetsid", VirksomhetResource::getVirksomhetsId);
+    }
+
 }

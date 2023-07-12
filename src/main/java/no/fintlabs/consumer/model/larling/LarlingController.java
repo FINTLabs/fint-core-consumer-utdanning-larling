@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+
 @Slf4j
 @CrossOrigin
 @RestController
@@ -20,4 +22,10 @@ public class LarlingController extends ConsumerRestController<LarlingResource> {
     public LarlingController(LarlingService service, LarlingLinker linker, FintFilterService oDataFilterService) {
         super(service, linker, oDataFilterService);
     }
+
+    @PostConstruct
+    private void registerIdentificators() {
+        super.registerIdenficatorHandler("systemid", LarlingResource::getSystemId);
+    }
+
 }
