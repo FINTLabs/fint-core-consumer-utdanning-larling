@@ -26,17 +26,14 @@ public class PersonService extends CacheService<PersonResource> {
 
     private final PersonLinker linker;
 
-    private final PersonResponseKafkaConsumer personResponseKafkaConsumer;
-
     public PersonService(
             PersonConfig consumerConfig,
             CacheManager cacheManager,
             PersonEntityKafkaConsumer entityKafkaConsumer,
-            PersonLinker linker, PersonResponseKafkaConsumer personResponseKafkaConsumer) {
+            PersonLinker linker) {
         super(consumerConfig, cacheManager, entityKafkaConsumer);
         this.entityKafkaConsumer = entityKafkaConsumer;
         this.linker = linker;
-        this.personResponseKafkaConsumer = personResponseKafkaConsumer;
     }
 
     @Override
