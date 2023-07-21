@@ -46,7 +46,7 @@ public class VirksomhetLinker extends FintLinker<VirksomhetResource> {
     public Stream<String> getAllSelfHrefs(VirksomhetResource virksomhet) {
         Stream.Builder<String> builder = Stream.builder();
         if (!isNull(virksomhet.getVirksomhetsId()) && !StringUtils.isEmpty(virksomhet.getVirksomhetsId().getIdentifikatorverdi())) {
-            builder.add(createHrefWithId(virksomhet.getVirksomhetsId().getIdentifikatorverdi(), "systemid"));
+            builder.add(createHrefWithId(virksomhet.getVirksomhetsId().getIdentifikatorverdi(), "virksomhetsid"));
         }
 
         return builder.build();
