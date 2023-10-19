@@ -1,21 +1,18 @@
 package no.fintlabs.consumer.model.person;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.resource.felles.PersonResource;
-import no.fint.model.resource.utdanning.larling.LarlingResource;
 import no.fintlabs.cache.Cache;
 import no.fintlabs.cache.CacheManager;
 import no.fintlabs.cache.packing.PackingTypes;
 import no.fintlabs.core.consumer.shared.resource.CacheService;
 import no.fintlabs.core.consumer.shared.resource.ConsumerConfig;
-import no.fintlabs.core.consumer.shared.resource.ConsumerRestController;
 import no.fintlabs.core.consumer.shared.resource.kafka.EntityKafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 @Slf4j
