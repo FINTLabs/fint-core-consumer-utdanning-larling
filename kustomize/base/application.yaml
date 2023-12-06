@@ -34,7 +34,7 @@ spec:
         permission: read
   url:
     hostname: '{env}.felleskomponent.no'
-    basePath: /alpha/fintlabs-no
+    basePath: /utdanning/larling
   ingress:
     enabled: true
     basePath: /utdanning/larling
