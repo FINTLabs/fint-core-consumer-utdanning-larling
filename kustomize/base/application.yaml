@@ -2,7 +2,7 @@ apiVersion: fintlabs.no/v1alpha1
 kind: Application
 metadata:
   name: fint-core-consumer-utdanning-larling
-  namespace: {org-dash}
+  namespace: '{org-dash}'
   labels:
     app.kubernetes.io/name: fint-core-consumer-utdanning-larling
     app.kubernetes.io/instance: fint-core-consumer-utdanning-larling_{org-dash}
@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/component: consumer
     app.kubernetes.io/part-of: core
     fintlabs.no/team: fint-core
-    fintlabs.no/org-id: {org-dot}
+    fintlabs.no/org-id: '{org-dot}'
 spec:
   port: 8080
   orgId: '{org-dot}'
@@ -18,7 +18,7 @@ spec:
   imagePullPolicy: Always
   env:
     - name: fint.consumer.org-id
-      value: {org-dot}
+      value: '{org-dot}'
     - name: fint.consumer.domain
       value: utdanning
     - name: fint.consumer.package
