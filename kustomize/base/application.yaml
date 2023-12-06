@@ -1,0 +1,47 @@
+apiVersion: fintlabs.no/v1alpha1
+kind: Application
+metadata:
+  name: fint-core-consumer-utdanning-larling
+  namespace: {org-dash}
+  labels:
+    app.kubernetes.io/name: fint-core-consumer-utdanning-larling
+    app.kubernetes.io/instance: fint-core-consumer-utdanning-larling_{org-dash}
+    app.kubernetes.io/version: latest
+    app.kubernetes.io/component: consumer
+    app.kubernetes.io/part-of: core
+    fintlabs.no/team: fint-core
+    fintlabs.no/org-id: {org-dot}
+spec:
+  port: 8080
+  orgId: '{org-dot}'
+  image: ghcr.io/fintlabs/fint-core-consumer-utdanning-larling:latest
+  imagePullPolicy: Always
+  env:
+    - name: fint.consumer.org-id
+      value: {org-dot}
+    - name: fint.consumer.domain
+      value: utdanning
+    - name: fint.consumer.package
+      value: larling
+    - name: spring.kafka.consumer.group-id
+      value: consumer-utdanning-larling-{env}
+    - name: fint.relations.defalt-base-url
+      value: https://{env}.felleskomponent.no
+  kafka:
+    enabled: true
+    acls:
+      - topic: '{org-dash}.fint-core.*'
+        permission: read
+  url:
+    hostname: '{env}.felleskomponent.no'
+    basePath: /alpha/fintlabs-no
+  ingress:
+    enabled: true
+    basePath: /utdanning/larling
+  resources:
+    limits:
+      memory: "1152Mi"
+      cpu: "1"
+    requests:
+      memory: "512Mi"
+      cpu: "100m"
