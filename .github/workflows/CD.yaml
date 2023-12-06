@@ -96,8 +96,7 @@ jobs:
           renderEngine: 'kustomize'
           kustomizationPath: 'kustomize/base'
 
-      - name: Replacer
-        id: replacer
+      - name: Replace Manifest values
         uses: FogadOg/githubWorkflowScriptTester@main
         with:
           org: ${{ matrix.org }}
@@ -124,6 +123,6 @@ jobs:
         uses: azure/k8s-deploy@v4.9
         with:
           action: deploy
-          manifests: ${{ steps.replacer.outputs.result }}
+          manifests: ${{ steps.bake.outputs.manifestsBundle }}
           images: ${{ needs.build-and-push.outputs.tags }}
           namespace: ${{ matrix.org }}
