@@ -9,3 +9,7 @@ data:
   fint.kafka.topic.domain-context: 'fint-core'
   fint.consumer.domain: 'utdanning'
   fint.consumer.package: 'larling'
+  fint.consumer.org-id: '{org-dot}'
+  fint.kafka.topic.org-id: '{org-dot}'
+  spring.kafka.consumer.group-id: 'consumer-utdanning-larling-api'
+  fint.relations.default-base-url: 'https://{env}.felleskomponent.no'

@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`hostname`) && PathPrefix(`path`)
+    - match: "Host(`{env}.felleskomponent.no`) && PathPrefix(`/utdanning/larling`) && Headers(`x-org-id`, `{org-dot}`)"
       kind: Rule
       services:
         - name: fint-core-consumer-utdanning-larling
