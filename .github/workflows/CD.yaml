@@ -67,6 +67,8 @@ jobs:
           - trondelagfylke-no
           - nfk-no
           - tffk-no
+          - vestfoldfylke-no
+          - telemarkfylke-no
         cluster:
 #          - aks-alpha-fint-2021-11-18
           - aks-beta-fint-2021-11-23
