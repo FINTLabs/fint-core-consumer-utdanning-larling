@@ -19,6 +19,8 @@ spec:
   env:
     - name: fint.consumer.org-id
       value: '{org-dot}'
+    - name: fint.kafka.topic.org-id
+      value: '{org-dot}'
     - name: fint.consumer.domain
       value: utdanning
     - name: fint.consumer.package
