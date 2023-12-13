@@ -31,7 +31,7 @@ spec:
     enabled: true
     acls:
       - topic: '{org-dash}.fint-core.*'
-        permission: read
+        permission: admin
   url:
     hostname: '{env}.felleskomponent.no'
     basePath: /utdanning/larling
