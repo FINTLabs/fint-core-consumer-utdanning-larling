@@ -36,7 +36,7 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-webflux-ui:1.7.0'
 
     implementation "no.fint:fint-utdanning-resource-model-java:${apiVersion}"
-    implementation 'no.fintlabs:fint-core-resource-server-security:1.0.0'
+    implementation 'no.fintlabs:fint-core-resource-server-security:2.0.0'
     implementation 'no.fintlabs:fint-core-consumer-shared:2.2.0'
 
     implementation 'com.google.guava:guava:31.1-jre'
