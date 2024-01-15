@@ -69,6 +69,7 @@ jobs:
           - tffk-no
           - vestfoldfylke-no
           - telemarkfylke-no
+          - rogfk-no
         cluster:
 #          - aks-alpha-fint-2021-11-18
           - aks-beta-fint-2021-11-23
@@ -77,7 +78,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4.0.0
 
       - name: Get environment
         uses: actions/github-script@v6
@@ -98,14 +99,7 @@ jobs:
         uses: azure/k8s-bake@v2.4
         with:
           renderEngine: 'kustomize'
-          kustomizationPath: 'kustomize/base'
-
-      - name: Replace Manifest values
-        uses: FogadOg/githubWorkflowScriptTester@main
-        with:
-          org: ${{ matrix.org }}
-          env: ${{ steps.environment.outputs.result }}
-          manifest: ${{ steps.bake.outputs.manifestsBundle }}
+          kustomizationPath: 'kustomize/overlays/${{ steps.environment.outputs.result }}/${{ matrix.org }}'
 
       - uses: azure/login@v1
         with:
