@@ -62,11 +62,11 @@ jobs:
 #          - innlandetfylke-no
 #          - agderfk-no
 #          - vlfk-no
-#          - mrfylke-no
+          - mrfylke-no
 #          - vtfk-no
-#          - trondelagfylke-no
+          - trondelagfylke-no
           - nfk-no
-#          - tffk-no
+          - tffk-no
           - vestfoldfylke-no
           - telemarkfylke-no
           - rogfk-no
