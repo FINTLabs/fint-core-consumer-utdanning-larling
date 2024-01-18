@@ -65,7 +65,7 @@ jobs:
 #          - mrfylke-no
 #          - vtfk-no
 #          - trondelagfylke-no
-#          - nfk-no
+          - nfk-no
 #          - tffk-no
           - vestfoldfylke-no
           - telemarkfylke-no
