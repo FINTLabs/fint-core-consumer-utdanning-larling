@@ -15,7 +15,7 @@ import java.util.Collection;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = RestEndpoints.ADMIN, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(name = "Admin", value = RestEndpoints.ADMIN, produces = MediaType.APPLICATION_JSON_VALUE)
 public class AdminController extends ConsumerAdminController {
 
     @Autowired(required = false)
