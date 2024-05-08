@@ -19,7 +19,7 @@ spec:
           secret:
             secretName: fint-core-consumer-utdanning-larling-kafka-certificates
       containers:
-        - image: ghcr.io/fintlabs/fint-core-consumer-utdanning-larling:sha-0000000
+        - image: ghcr.io/fintlabs/fint-core-consumer-utdanning-larling:latest
           name: fint-core-consumer-utdanning-larling
           volumeMounts:
             - name: credentials
