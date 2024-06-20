@@ -37,7 +37,7 @@ dependencies {
 
     implementation "no.fint:fint-utdanning-resource-model-java:${apiVersion}"
     implementation 'no.fintlabs:fint-core-resource-server-security:2.0.0'
-    implementation 'no.fintlabs:fint-core-consumer-shared:2.3.0'
+    implementation 'no.fintlabs:fint-core-consumer-shared:2.4.0-rc-2'
 
     implementation 'com.google.guava:guava:32.0.0-android'
     implementation 'org.apache.commons:commons-lang3:3.8.1'
