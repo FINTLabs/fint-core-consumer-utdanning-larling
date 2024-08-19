@@ -3,9 +3,6 @@ server:
 
 spring:
   security:
-    open-paths: |
-      /api-docs/**,
-      /swagger/**
     oauth2:
       resourceserver:
         jwt:
@@ -18,6 +15,11 @@ spring:
 
 
 fint:
+  security:
+    open-paths: |
+      /api-docs/**,
+      /swagger/**,
+      /actuator/prometheus
   consumer:
     org-id:
     domain:
