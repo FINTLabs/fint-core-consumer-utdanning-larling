@@ -36,11 +36,11 @@ public class LarlingService extends CacheService<LarlingResource> {
 
     @PostConstruct
     private void registerKafkaListener() {
-        long retension = elevfravarKafkaConsumer.registerListener(LarlingResource.class, this::addResourceToCache);
-        getCache().setRetentionPeriodInMs(retension);
+        elevfravarKafkaConsumer.registerListener(LarlingResource.class, this::addResourceToCache);
     }
 
     private void addResourceToCache(ConsumerRecord<String, LarlingResource> consumerRecord) {
+        updateRetensionTime(consumerRecord.headers().lastHeader("topic-retension-time"));
         this.eventLogger.logDataRecieved();
         if (consumerRecord.value() == null) {
             getCache().remove(consumerRecord.key());
